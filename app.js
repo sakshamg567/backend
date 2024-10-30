@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
-const router = require('./routes/image');
+const router = require('./api/middlewares/routes/image');
 
 app.use('/api', router);
 app.set("view engine", "ejs");
