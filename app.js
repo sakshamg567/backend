@@ -6,7 +6,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 const router = require('./routes/image');
 
-app.use('cors')
 app.use('/api', router);
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
