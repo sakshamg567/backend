@@ -1,12 +1,18 @@
 const express = require('express');
 const connectToMongoDB = require('./connection');
 const app = express();
+const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 const router = require('./routes/image');
 
 app.use('cors')
 app.use('/api', router);
+app.set("view engine", "ejs");
+app.set("views", path.resolve("./views"));
+app.get('/', (req, res) => {
+  res.render('home')
+})
 
 connectToMongoDB(process.env.MONGODB_URI, () => {
  console.log('Connected to MongoDB')
